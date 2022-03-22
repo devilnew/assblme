@@ -25,3 +25,61 @@
 
   </fileSets>
 </assembly>
++++++++++++++++++++++
+<assembly>
+  <id>deploy</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+   <fileSets>
+       <fileSet>
+        <directory>target</directory>
+      <!--  <outputDirectory>lib</outputDirectory> -->
+        <includes>
+         <!-- <include>${artifactId}.${version}.jar</include> -->
+                 <include>*.jar</include>
+    </includes>
+   </fileSet>
+     <fileSet>
+      <directory>src/main/resources</directory>
+      <outputDirectory>config</outputDirectory>
+      <includes>
+        <include>*.properties</include>
+                <include>*.xml</include>
+      </includes>
+          <fileMode>0755</fileMode>
+     </fileSet>
+     <fileSet>
+      <directory>certs</directory>
+      <outputDirectory>certs</outputDirectory>
+      <includes>
+        <include>*</include>
+      </includes>
+          <fileMode>0755</fileMode>
+     </fileSet>
+     <fileSet>
+                     <!-- <directory>scripts</directory> -->
+        <outputDirectory>scripts</outputDirectory>
+        <excludes><exclude>**/*</exclude></excludes>
+      <!-- <includes>
+        <include>*.sh</include>
+      </includes>
+          <fileMode>0755</fileMode>   -->
+     </fileSet>
+     <fileSet>
+                     
+        <outputDirectory>logs</outputDirectory>
+        <excludes><exclude>**/*</exclude></excludes>
+		
+		 </fileSet>
+		 <fileSet>
+                     
+        <outputDirectory>data</outputDirectory>
+		<directory>disclosur</directory>
+		<directory>nca_ack</directory>
+        <excludes><exclude>**/*</exclude></excludes>
+		
+		 </fileSet>
+
+  </fileSets>
+</assembly>
